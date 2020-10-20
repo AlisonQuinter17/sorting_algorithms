@@ -1,10 +1,17 @@
-#ifndef SORT_H
-#define SORT_H
+#ifndef _SORT_H
+#define _SORT_H
 
 /* Libraries */
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * enum kind_e - type of cards
+ * @SPADE: spade
+ * @HEART: heart
+ * @CLUB: club
+ * @DIAMOND: diamond
+ */
 typedef enum kind_e
 {
     SPADE = 0,
