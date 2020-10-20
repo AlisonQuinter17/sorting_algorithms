@@ -20,13 +20,23 @@ void insertion_sort_list(listint_t **list)
 		c = 1;
 		if (aux->n > aux->next->n)
 		{
-			if (!aux->prev)
+			if(!aux->prev)
 			{
-				aux->next = aux->next->next;
-				aux->next->prev->next = aux;
-				aux->next->prev->prev = NULL;
-				aux->prev = aux->next->prev;
-				aux->next->prev = aux;
+				if (!aux->next->next)
+				{
+					aux->next->next = aux;
+					aux->next->prev = NULL;
+					aux->prev = aux->next;
+					aux->next = NULL;
+				}
+				else
+				{
+					aux->next = aux->next->next;
+					aux->next->prev->next = aux;
+					aux->next->prev->prev = NULL;
+					aux->prev = aux->next->prev;
+					aux->next->prev = aux;
+				}
 				*list = aux->prev;
 				aux = aux->prev;
 			}
